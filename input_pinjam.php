@@ -81,13 +81,13 @@
                                                         $data = mysqli_query($koneksi, "select * from sarpras where status='Tersedia'");
                                                         while ($d = mysqli_fetch_array($data)) {
                                                             ?>
-                                                            <option value=<?php echo $d['nama_barang'] ?>>
+                                                            <option value=<?php echo str_replace(' ', '_', $d['nama_barang']) ?>>
                                                                 <?php echo $d['nama_barang']; ?></option>
                                                         <?php }
                                                     } elseif ($_SESSION['role'] == 'umum') {
                                                         $data = mysqli_query($koneksi, "select * from sarpras where status='Tersedia' and keterangan='Bebas'");
                                                         while ($d = mysqli_fetch_array($data)) { ?>
-                                                            <option value=<?php echo $d['nama_barang'] ?>>
+                                                            <option value=<?php str_replace(' ', '_', $d['nama_barang']) ?>>
                                                                 <?php echo $d['nama_barang'] ?></option>
                                                         <?php }
                                                     } ?>
@@ -163,7 +163,7 @@
 
             optionsValues.forEach((optionsValue, index) => {
                 options += `
-                <option value=${optionsValue}>
+                <option value=${optionsValue.split(' ').join('_');}>
                     ${optionsValue}
                 </option>
                 `
