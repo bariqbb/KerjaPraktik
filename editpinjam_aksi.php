@@ -12,8 +12,8 @@ $info = mysqli_fetch_array($pinjam);
 $query = mysqli_query($koneksi, "select * from barangpinjam where id_pinjam='$id'");
 $d = mysqli_fetch_array($query);
 for ($i = 0; $i < count($d); $i++) {
-  $nama = str_replace('_', ' ', $d['nama_barang'][$i]);
-  $jumlah = $d['jumlah'][$i];
+  $nama = str_replace('_', ' ', $d['nama_barang']);//[$i]);
+  $jumlah = $d['jumlah'];//[$i];
   $data = mysqli_query($koneksi, "select jumlah from sarpras where nama_barang='$nama'");
   $a = mysqli_fetch_array($data);
   $b = $a['jumlah'];

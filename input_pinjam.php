@@ -163,7 +163,7 @@
 
             optionsValues.forEach((optionsValue, index) => {
                 options += `
-                <option value=${optionsValue.split(' ').join('_');}>
+                <option value=${optionsValue.split(' ').join('_')}>
                     ${optionsValue}
                 </option>
                 `
