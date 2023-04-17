@@ -72,7 +72,7 @@ include "koneksi.php";
                       Masa Peminjaman
                     </div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <?php $data = mysqli_query($koneksi, "select * from peminjaman where status='Masa Peminjaman'");
+                      <?php $data = mysqli_query($koneksi, "select * from peminjaman where status='Masa Pinjam'");
                       $d = mysqli_num_rows($data);
                       echo $d;
                       ?>
