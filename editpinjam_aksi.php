@@ -38,7 +38,7 @@ for ($i = 0; $i < count($d['id_pinjam']); $i++) {
       mysqli_query($koneksi, "update peminjaman set status='$status' where id_pinjam='$id'");
       break;
   }
-  if ($b > 1) {
+  if ($b = 0) {
     mysqli_query($koneksi, "update sarpras set status='Tidak Tersedia' where nama_barang='$nama'");
   } else {
     mysqli_query($koneksi, "update sarpras set status='Tersedia' where nama_barang='$nama'");
