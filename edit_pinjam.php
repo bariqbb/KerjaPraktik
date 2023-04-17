@@ -113,7 +113,7 @@
                                         ?>
                                             <tr>
                                                 <td><?php echo $no ?></td>
-                                                <td><?php echo $d['nama_barang']; ?></td>
+                                                <td><?php echo str_replace('_', ' ', $d['nama_barang']); ?></td>
                                                 <td><?php echo $d['jumlah']; ?></td>
                                             </tr>
                                         <?php } ?>
