@@ -13,6 +13,7 @@ $query = mysqli_query($koneksi, "select * from barangpinjam where id_pinjam='$id
 $d = mysqli_fetch_array($query);
 
 for ($i = 0; $i < count($d['id_pinjam']); $i++) {
+//foreach ($d as $key ) {
   $nama = str_replace('_', ' ', $d['nama_barang']);//[$i]);
   $jumlah = $d['jumlah'];//[$i];
   $data = mysqli_query($koneksi, "select * from sarpras where nama_barang='$nama'");

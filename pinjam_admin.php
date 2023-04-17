@@ -73,6 +73,8 @@ include "koneksi.php";
                                                         class="btn-sm btn-primary"><span class="fas fa-edit"></a>
                                                     <a href="printsurat.php?id_pinjam=<?php echo $d['id_pinjam']; ?>"
                                                         class="btn-sm btn-success"><span class="fas fa-file-pdf"></a>
+                                                    <a href="hapus_pinjam.php?id_pinjam=<?php echo $d['id_pinjam']; ?>"
+                                                        class="btn-sm btn-danger"><span class="fas fa-trash"></a>
                                                 </td>
                                             </tr>
                                 </div>

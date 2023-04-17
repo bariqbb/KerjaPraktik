@@ -61,8 +61,6 @@ if(isset($_GET['id_pinjam'])){
   $id=($_GET['id_pinjam']);
   $data = mysqli_query($koneksi,"select * from peminjaman where id_pinjam='$id'");
   $d = mysqli_fetch_array($data);
-  $a = mysqli_query($koneksi,"select * from barangpinjam where id_pinjam='$id'");
-  $b = mysqli_fetch_array($data);
 //Mulai dokumen
 $pdf->AddPage('P', 'A4');
 //meletakkan gambar
@@ -98,8 +96,16 @@ $pdf->Cell(10,4,date("d F Y", strtotime($d['tanggal_balik'])),0,1);
 $pdf->SetFont('times','','11');
 $pdf->Cell(15,8,'Sarana/Prasarana yang dipinjam',0,0);
 $pdf->Cell(42);
-$pdf->Cell(5,8,' : ',0,0);
-$pdf->Cell(10,8,str_replace('_', ' ', $b['nama_barang']),0,1); 
+$pdf->Cell(5,8,' : ',0,1);
+$pdf->Cell(30);
+$pdf->Cell(50,7,'Nama Sarana/Prasarana' ,1,0,'C');
+$pdf->Cell(50,7,'Jumlah',1,1,'C');
+$a = mysqli_query($koneksi,"SELECT  * FROM barangpinjam where id_pinjam='$id'");
+while($b = mysqli_fetch_array($a)){
+  $pdf->Cell(30);
+  $pdf->Cell(50,6, str_replace('_', ' ', $b['nama_barang']),1,0);
+  $pdf->Cell(50,6, $b['jumlah'],1,1);  
+}
 
 $pdf->Cell(180,4,'    Demikian surat peminjaman ruangan ini kami sampaikan, atas perhatiannya kami ucapakan terimaksih.',0,1,'L');
 
